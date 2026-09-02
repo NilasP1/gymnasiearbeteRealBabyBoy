@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Handle camera rotation based on look input
+        Debug.Log("hiii");
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
         xRotation -= mouseY;
