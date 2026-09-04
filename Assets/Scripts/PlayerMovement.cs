@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+        Debug.Log("Movement input: " + movementInput);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -48,9 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
-        // Handle camera rotation based on look input
-        Debug.Log("hiii");
+    { 
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
         xRotation -= mouseY;
@@ -62,10 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit hit, raydistance))
         {
-            Debug.Log("Hit: " + hit.collider.name);
             if (hit.collider.CompareTag("Car"))
             {
-                Debug.Log("Car detected");
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
                     Debug.Log("Entering car");
@@ -80,5 +77,6 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
+        Debug.Log("Look input: " + lookInput);
     }
 }

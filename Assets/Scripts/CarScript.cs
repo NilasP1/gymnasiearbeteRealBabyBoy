@@ -19,6 +19,7 @@ public class CarScript : MonoBehaviour
     private bool IsMoving = false; // Flag to check if the car is moving
     public Rigidbody rb; // Reference to the car's Rigidbody
     public float speed = 10f; // Speed of the car
+    public Transform ExitPoint; // Reference to the exit point of the car
 
     private Vector2 movementInput;
 
@@ -46,7 +47,7 @@ public class CarScript : MonoBehaviour
 
         Vector3 movement = -transform.right * movementInput.y;
         //The car only turns when the player is moving forward or backward
-        if (movementInput.y != 0)
+        if (IsMoving)
         {
             transform.Rotate(Vector3.up * movementInput.x * speed * 0.1f);
         }
@@ -56,6 +57,18 @@ public class CarScript : MonoBehaviour
         //rb.MovePosition(
         //    rb.position + movement * speed * Time.fixedDeltaTime
         //);
+
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            Debug.Log("Exiting car");
+            isInCarAndDriving = false;
+            PlayerRigidbody.isKinematic = false; // Make the player's Rigidbody non-kinematic to allow physics interactions
+            playerMovement.enabled = true; // Enable player movement when exiting the car
+            playerInput.enabled = true; // Enable player input when exiting the car
+            CarPlayerInput.enabled = false; // Disable car player input
+            PlayerTransform.position = ExitPoint.position; // Move the player to the exit point of the car
+            PlayerTransform.rotation = ExitPoint.rotation; // Rotate the player to face the exit point of the car
+        }
     }
 
     private void Update()
@@ -75,10 +88,12 @@ public class CarScript : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
+        Debug.Log("Car look input: " + lookInput);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+        Debug.Log("Car movement input: " + movementInput);
     }
 }
