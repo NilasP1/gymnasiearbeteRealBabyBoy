@@ -55,8 +55,8 @@ public class CarScript : MonoBehaviour
             isInCarAndDriving = false;
             PlayerRigidbody.isKinematic = false; // Make the player's Rigidbody non-kinematic to allow physics interactions
             playerMovement.enabled = true; // Enable player movement when exiting the car
-            playerInput.enabled = true; // Enable player input when exiting the car
             CarPlayerInput.enabled = false; // Disable car player input
+            playerInput.enabled = true; // Enable player input when exiting the car
             PlayerTransform.position = ExitPoint.position; // Move the player to the exit point of the car
             PlayerTransform.rotation = ExitPoint.rotation; // Rotate the player to face the exit point of the car
         }
