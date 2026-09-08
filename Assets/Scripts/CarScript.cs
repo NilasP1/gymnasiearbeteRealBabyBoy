@@ -15,11 +15,10 @@ public class CarScript : MonoBehaviour
     public Transform PlayerRotationPoint; 
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
     public Transform CarTransform; // Reference to the car's transform
-    public Transform CarTurnPoint;
-    private bool IsMoving = false; // Flag to check if the car is moving
     public Rigidbody rb; // Reference to the car's Rigidbody
     public float speed = 10f; // Speed of the car
     public Transform ExitPoint; // Reference to the exit point of the car
+    public float turnSpeed = 5f; // Speed at which the car turns
 
     private Vector2 movementInput;
 
@@ -35,22 +34,14 @@ public class CarScript : MonoBehaviour
         playerInput.enabled = false; // Disable player input when in the car
         CarPlayerInput.enabled = true; // Enable car player input
 
-        //makes the IsMoving flag true if the player is moving the car by checking the speed of the car, if the speed is greater than 0, then the car is moving
-        if (rb.linearVelocity.magnitude > 0.1f)
-        {
-            IsMoving = true;
-        }
-        else
-        {
-            IsMoving = false;
-        }
-
         Vector3 movement = -transform.right * movementInput.y;
-        //The car only turns when the player is moving forward or backward
-        if (IsMoving)
-        {
-            transform.Rotate(Vector3.up * movementInput.x * speed * 0.1f);
-        }
+
+        float turnAmount = movementInput.x * turnSpeed * Time.fixedDeltaTime;
+
+        Quaternion rotation =
+            Quaternion.Euler(0f, turnAmount, 0f);
+
+        rb.MoveRotation(rb.rotation * rotation);
 
         rb.AddForce(movement * speed, ForceMode.Acceleration);
 
