@@ -2254,13 +2254,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222395342}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.089381024, y: -0.701435, z: 0.08938101, w: 0.701435}
+  m_LocalRotation: {x: 0.025232706, y: -0.70665646, z: 0.025232706, w: 0.70665646}
   m_LocalPosition: {x: 4.01, y: 1.6000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667628234}
-  m_LocalEulerAnglesHint: {x: 14.524, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.09, y: -90, z: 0}
 --- !u!1 &1234835353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,7 +2933,7 @@ Rigidbody:
   m_GameObject: {fileID: 1558415862}
   serializedVersion: 5
   m_Mass: 100
-  m_LinearDamping: 0
+  m_LinearDamping: 2
   m_AngularDamping: 50
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2970,12 +2970,16 @@ MonoBehaviour:
   PlayerRigidbody: {fileID: 1573845651}
   PlayerTargetTransform: {fileID: 1222395342}
   PlayerRotationPoint: {fileID: 1667628234}
+  cam: {fileID: 330585545}
   playerMovement: {fileID: 1573845650}
   CarTransform: {fileID: 543450652190651121}
   rb: {fileID: 1558415865}
-  speed: 15
   ExitPoint: {fileID: 1417462839}
-  turnSpeed: 50
+  turnSpeed: 25
+  maxSpeed: 20
+  acceleration: 5
+  deceleration: 0.5
+  speed: 35
 --- !u!114 &1558415867
 MonoBehaviour:
   m_ObjectHideFlags: 0

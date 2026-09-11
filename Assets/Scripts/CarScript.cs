@@ -12,13 +12,18 @@ public class CarScript : MonoBehaviour
     public PlayerInput CarPlayerInput;
     public Rigidbody PlayerRigidbody; // Reference to the player's Rigidbody
     public GameObject PlayerTargetTransform;
-    public Transform PlayerRotationPoint; 
+    public Transform PlayerRotationPoint;
+    public Camera cam;
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
     public Transform CarTransform; // Reference to the car's transform
     public Rigidbody rb; // Reference to the car's Rigidbody
-    public float speed = 10f; // Speed of the car
     public Transform ExitPoint; // Reference to the exit point of the car
     public float turnSpeed = 5f; // Speed at which the car turns
+
+    public float maxSpeed = 20f;
+    public float acceleration = 5f;
+    public float deceleration = 0.5f;
+    public float speed = 10f;
 
     private Vector2 movementInput;
 
@@ -41,10 +46,9 @@ public class CarScript : MonoBehaviour
         Quaternion rotation =
             Quaternion.Euler(0f, turnAmount, 0f);
 
+        rb.AddForce(-transform.right * movementInput.y * speed, ForceMode.Acceleration);
+
         rb.MoveRotation(rb.rotation * rotation);
-
-        rb.AddForce(movement * speed, ForceMode.Acceleration);
-
         //rb.MovePosition(
         //    rb.position + movement * speed * Time.fixedDeltaTime
         //);
@@ -70,10 +74,12 @@ public class CarScript : MonoBehaviour
         float mouseX = lookInput.x * playerMovement.mouseSensitivity * Time.deltaTime;
         yaw += mouseX;
 
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, rb.linearVelocity.magnitude * 1.5f + 50, 5 * Time.deltaTime); // Smoothly transition the camera's field of view to 60
+
         PlayerRotationPoint.localRotation = Quaternion.Euler(0f, yaw, 0f);
         PlayerTransform.rotation = PlayerTargetTransform.transform.rotation; // Align the player's rotation with the car's rotation
-        PlayerTransform.position = Vector3.Lerp(PlayerTransform.position, PlayerTargetTransform.transform.position, 15 * Time.deltaTime);
-    
+        //PlayerTransform.position = Vector3.Lerp(PlayerTransform.position, PlayerTargetTransform.transform.position, 15 * Time.deltaTime);
+        PlayerTransform.position = PlayerTargetTransform.transform.position; // Align the player's position with the car's position
     }
 
     public void OnLook(InputAction.CallbackContext context)
