@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
 
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float raydistance;
     public float mouseSensitivity = 100f;
-    public CarScript carScript; // Reference to the CarScript component
+
 
     private float xRotation = 0f;
 
@@ -57,21 +56,7 @@ public class PlayerMovement : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
-        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, raydistance))
-        {
-            if (hit.collider.CompareTag("Car"))
-            {
-                if (Keyboard.current.eKey.wasPressedThisFrame)
-                {
-                    Debug.Log("Entering car");
-                    carScript.isInCarAndDriving = true;
-                }
-            }
-
-            Debug.DrawRay(ray.origin, ray.direction * raydistance, Color.red);  
-        }
     } 
 
     public void OnLook(InputAction.CallbackContext context)
