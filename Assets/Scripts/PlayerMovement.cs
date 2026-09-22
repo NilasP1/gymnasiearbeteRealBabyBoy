@@ -59,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
     } 
 
+    public void ResetCamera()
+    {        
+        xRotation = 0f;
+    }
+
     public void OnLook(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
