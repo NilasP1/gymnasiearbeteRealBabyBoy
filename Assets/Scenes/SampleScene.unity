@@ -1048,6 +1048,16 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &560242836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4312865690460137985, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &579080479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2626991001241596096, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &586292602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1593,6 +1603,158 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000008437066031929439633, type: 3}
+--- !u!1 &1138652401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 980142589657456113, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1138652402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138652401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca976634c6204404bb56cf730b419e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarController
+  _wheels:
+  - PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 90}
+    ScaleOffset: {x: 0, y: 0, z: 0}
+    Model: {fileID: 1231390857}
+    Collider: {fileID: 2084489030}
+    Steerable: 1
+    Motorized: 1
+  - PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 90}
+    ScaleOffset: {x: 0, y: 0, z: 0}
+    Model: {fileID: 560242836}
+    Collider: {fileID: 2101018309}
+    Steerable: 1
+    Motorized: 1
+  - PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 90}
+    ScaleOffset: {x: 0, y: 0, z: 0}
+    Model: {fileID: 1421889904}
+    Collider: {fileID: 1544827799}
+    Steerable: 0
+    Motorized: 1
+  - PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 90}
+    ScaleOffset: {x: 0, y: 0, z: 0}
+    Model: {fileID: 2098799411}
+    Collider: {fileID: 2134121692}
+    Steerable: 0
+    Motorized: 1
+  _mainCamera: {fileID: 330585545}
+  _exitPoint: {fileID: 1818077972}
+  _orbitPoint: {fileID: 579080479}
+  _orbitPivot: {fileID: 1622697851}
+  _cameraTransitionSpeed: 5
+  _cameraTurnSensitivity: 7.5
+  _minCameraPitch: -25
+  _maxCameraPitch: 25
+  _fovChangeIntensity: 3.5
+  _fovChangeSpeed: 9
+  _motorTorque: 250
+  _brakeTorque: 250
+  _maxSpeed: 30
+  _steerRange: 12.5
+  _steerRangeAtMaxSpeed: 10
+  _wheelModelLerpSpeed: 10
+  _onEnterCar:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1573845650}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1573845647}
+        m_TargetAssemblyTypeName: UnityEngine.MeshRenderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1573845651}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: Sleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onExitCar:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1573845650}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1573845650}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: ResetCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1573845647}
+        m_TargetAssemblyTypeName: UnityEngine.MeshRenderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1573845651}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: WakeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1144409924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +2138,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1231390857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5661076013390908085, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1234835353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2458,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000017266767294394195532, type: 3}
+--- !u!4 &1421889904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3534832635445319324, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1466536156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2405,6 +2577,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000007741857705169350197, type: 3}
+--- !u!146 &1544827799 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 5684360796120939575, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563317800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,6 +2979,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   _raydistance: 5
   _cameraTransform: {fileID: 330585546}
+--- !u!4 &1622697851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2765942171323549883, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1674818790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,6 +3496,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000017266767294394195532, type: 3}
+--- !u!4 &1818077972 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4449835221221206982, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1821387475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3686,6 +3873,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 642692650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &2084489030 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 4322589008514364613, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2090223945
 Mesh:
   m_ObjectHideFlags: 0
@@ -3864,6 +4056,21 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &2098799411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2353853893231865822, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &2101018309 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 6161771254184029991, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &2134121692 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 9052857978009199354, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+  m_PrefabInstance: {fileID: 5338167884310765028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2141382857
 Mesh:
   m_ObjectHideFlags: 0
@@ -4088,11 +4295,11 @@ PrefabInstance:
       objectReference: {fileID: 1573845651}
     - target: {fileID: 7521549704240450447, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.414
+      value: 5.415
       objectReference: {fileID: 0}
     - target: {fileID: 7521549704240450447, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.804
+      value: 8.792
       objectReference: {fileID: 0}
     - target: {fileID: 7521549704240450447, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4129,7 +4336,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 980142589657456113, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1138652402}
   m_SourcePrefab: {fileID: 100100000, guid: 773154af331fe674ea42c3f54e096c82, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

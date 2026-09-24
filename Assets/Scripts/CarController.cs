@@ -26,8 +26,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform _orbitPivot;
 
     [Header("Camera Settings")]
-    [SerializeField] private float _cameraTransitionInSpeed = 5f;
-    [SerializeField] private float _cameraTransitionOutSpeed = 5f;
+    [SerializeField] private float _cameraTransitionSpeed = 5f;
     [SerializeField] private float _cameraTurnSensitivity = 5f;
     [SerializeField] private float _minCameraPitch = -25f;
     [SerializeField] private float _maxCameraPitch = 25f;
@@ -197,7 +196,7 @@ public class CarController : MonoBehaviour
         while (Vector3.Distance(_mainCamera.transform.position, _orbitPoint.position) > 0.01f)
         {
             _mainCamera.transform.LookAt(_orbitPivot);
-            _mainCamera.transform.position = Vector3.Lerp(_mainCamera.transform.position, _orbitPoint.position, Time.deltaTime * _cameraTransitionInSpeed);
+            _mainCamera.transform.position = Vector3.Lerp(_mainCamera.transform.position, _orbitPoint.position, Time.deltaTime * _cameraTransitionSpeed);
             yield return null;
         }
 
@@ -212,24 +211,15 @@ public class CarController : MonoBehaviour
         if (!IsInCar) yield break;
 
         _input.enabled = false;
-        _isInTransition = true;
-
-        _mainCamera.transform.rotation = _exitPoint.rotation;
-        _mainCamera.fieldOfView = _defaultFov;
-        _rb.constraints = RigidbodyConstraints.FreezeAll;
-
-        Cursor.lockState = CursorLockMode.None;
-
-        Vector3 target = _exitPoint.TransformPoint(_lastCameraLocalPos);
-        while (Vector3.Distance(_mainCamera.transform.position, target) > 0.1f)
-        {
-            _mainCamera.transform.position = Vector3.Lerp(_mainCamera.transform.position, target, Time.deltaTime * _cameraTransitionOutSpeed);
-            yield return null;
-        }
-
-        _isInTransition = false;
         _isInCar = false;
         _onExitCar?.Invoke();
+
+        _rb.constraints = RigidbodyConstraints.FreezeAll;
+        Cursor.lockState = CursorLockMode.None;
+
+        _mainCamera.transform.position = _exitPoint.TransformPoint(_lastCameraLocalPos);
+        _mainCamera.transform.rotation = _exitPoint.rotation;
+        _mainCamera.fieldOfView = _defaultFov;
 
         ResetCameraParent();
 
