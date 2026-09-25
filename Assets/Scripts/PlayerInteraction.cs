@@ -6,6 +6,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private float _raydistance;
     [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private Looting _lootingScript;
 
     private CarController lastCarController = null;
 
@@ -24,6 +25,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             lastCarController = hit.collider.gameObject.GetComponentsInParent<CarController>().FirstOrDefault();
             lastCarController?.EnterCar(); // Enter car if script found otherwise do nothing
+
+            // Check if the hit object has the "Loot" tag and call the LootingItem method
+            if (hit.collider.CompareTag("Loot"))
+            {
+                _lootingScript.LootingItem(hit.collider.gameObject);
+            }
         }
     }
 
