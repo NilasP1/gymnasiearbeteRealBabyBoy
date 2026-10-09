@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,15 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _steerRange = 30f;
     [SerializeField] private float _steerRangeAtMaxSpeed = 10f;
     [SerializeField] private float _wheelModelLerpSpeed = 5f;
+    [SerializeField] private float _LightIntensity = 1f;
+    [SerializeField] private GameObject _LightObject1;
+    [SerializeField] private GameObject _LightObject2;
+
+    [Header("Suspension Settings")]
+    [SerializeField] private WheelCollider _RightFrontSuspension;
+    [SerializeField] private WheelCollider _LeftFrontSuspension;
+    [SerializeField] private WheelCollider _RightRearSuspension;
+    [SerializeField] private WheelCollider _LeftRearSuspension;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onEnterCar;
@@ -234,5 +244,30 @@ public class CarController : MonoBehaviour
 
         _mainCamera.transform.SetParent(_lastCameraParent);
         _mainCamera.transform.SetLocalPositionAndRotation(_lastCameraLocalPos, Quaternion.identity);
+    }
+
+    public void ChangeCarStats(float motorTorque, float brakeTorque, float maxSpeed, float lightintensity, float suspension, float tiregrip)
+    {
+        _motorTorque = motorTorque;
+        _brakeTorque = brakeTorque;
+        _maxSpeed = maxSpeed;
+        _LightIntensity = lightintensity;
+
+        _RightFrontSuspension.suspensionDistance = suspension;
+        _LeftFrontSuspension.suspensionDistance = suspension;
+        _RightRearSuspension.suspensionDistance = suspension;
+        _LeftRearSuspension.suspensionDistance = suspension;
+
+        foreach (var wheel in _wheels)
+        {
+            wheel.Collider.forwardFriction = SetTireGrip(wheel.Collider.forwardFriction, tiregrip);
+            wheel.Collider.sidewaysFriction = SetTireGrip(wheel.Collider.sidewaysFriction, tiregrip);
+        }
+    }
+
+    private WheelFrictionCurve SetTireGrip(WheelFrictionCurve frictionCurve, float tireGrip)
+    {
+        frictionCurve.stiffness = tireGrip;
+        return frictionCurve;
     }
 }

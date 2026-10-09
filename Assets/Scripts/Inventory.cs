@@ -1,225 +1,195 @@
+
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory Items")]
     public List<GameObject> items = new List<GameObject>();
+
+    [Header("Inventory UI")]
     public List<GameObject> InventoryUISlots = new List<GameObject>();
+    public List<GameObject> InventoryUIbuttons = new List<GameObject>();
     public List<Sprite> itemSprites = new List<Sprite>();
-    public bool isInventoryOpen = false;
+
+    [Header("References")]
     public PlayerMovement PlayerMovement;
     public Canvas inventoryCanvas;
+    public CarUpgrading carUpgrading;
+
+    public bool isInventoryOpen;
 
     private void Start()
     {
         if (inventoryCanvas != null)
-        {
-            inventoryCanvas.enabled = false; // Ensure the inventory canvas is hidden at the start
-        }
+            inventoryCanvas.enabled = false;
+
+        RefreshInventoryUI();
     }
 
+    // Call this method from your existing pickup interaction.
     public void AddItem(GameObject item)
     {
-        items.Add(item);
-        UnityEngine.UI.Image inventorySlotImage;
-        int slotIndex = items.IndexOf(item);
-        inventorySlotImage = InventoryUISlots[slotIndex].transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Image>(); // Get the Image component of the first child of the first child of the inventory slot
-        Sprite itemSprite = null;
+        if (item == null)
+            return;
 
-        LootableObjectType ItemType = item.GetComponent<LootableObject>().lootableObjectType;
-        LootableObjectQuality ItemQuality = item.GetComponent<LootableObject>().lootableObjectQuality; 
-
-        switch (ItemType)
+        if (item.GetComponent<LootableObject>() == null)
         {
-            case LootableObjectType.Tires:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Tires
-                        itemSprite = itemSprites[0];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Tires
-                        itemSprite = itemSprites[1];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Tires
-                        itemSprite = itemSprites[2];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Tires
-                        itemSprite = itemSprites[3];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Tires
-                        itemSprite = itemSprites[4];
-                        break;
-                }
-                break;
-            case LootableObjectType.Engine:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Engine
-                        itemSprite = itemSprites[5];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Engine
-                        itemSprite = itemSprites[6];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Engine
-                        itemSprite = itemSprites[7];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Engine
-                        itemSprite = itemSprites[8];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Engine
-                        itemSprite = itemSprites[9];
-                        break;
-                }
-                break;
-            case LootableObjectType.Body:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Body
-                        itemSprite = itemSprites[10];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Body
-                        itemSprite = itemSprites[11];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Body
-                        itemSprite = itemSprites[12];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Body
-                        itemSprite = itemSprites[13];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Body
-                        itemSprite = itemSprites[14];
-                        break;
-                }
-                break;
-            case LootableObjectType.Light:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Light
-                        itemSprite = itemSprites[15];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Light
-                        itemSprite = itemSprites[16];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Light
-                        itemSprite = itemSprites[17];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Light
-                        itemSprite = itemSprites[18];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Light
-                        itemSprite = itemSprites[19];
-                        break;
-                }
-                break;
-            case LootableObjectType.Brakes:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Brakes
-                        itemSprite = itemSprites[20];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Brakes
-                        itemSprite = itemSprites[21];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Brakes
-                        itemSprite = itemSprites[22];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Brakes
-                        itemSprite = itemSprites[23];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Brakes
-                        itemSprite = itemSprites[24];
-                        break;
-                }
-                break;
-            case LootableObjectType.Suspension:
-                switch (ItemQuality)
-                {
-                    case LootableObjectQuality.Normal:
-                        // Set the image for Normal Suspension
-                        itemSprite = itemSprites[25];
-                        break;
-                    case LootableObjectQuality.Improved:
-                        // Set the image for Improved Suspension
-                        itemSprite = itemSprites[26];
-                        break;
-                    case LootableObjectQuality.Reinforced:
-                        // Set the image for Reinforced Suspension
-                        itemSprite = itemSprites[27];
-                        break;
-                    case LootableObjectQuality.Armored:
-                        // Set the image for Armored Suspension
-                        itemSprite = itemSprites[28];
-                        break;
-                    case LootableObjectQuality.MilitaryGrade:
-                        // Set the image for Military Grade Suspension
-                        itemSprite = itemSprites[29];
-                        break;
-                }
-                break;
+            Debug.LogWarning(
+                item.name + " has no LootableObject component.");
+            return;
         }
 
-        inventorySlotImage.sprite = itemSprite; // Set the sprite for the inventory slot image
+        if (items.Contains(item))
+            return;
 
-        Debug.Log($"Item {item.name} added to inventory.");
+        if (items.Count >= InventoryUISlots.Count)
+        {
+            Debug.LogWarning("Inventory is full.");
+            return;
+        }
+
+        // Store the actual item GameObject.
+        items.Add(item);
+
+        // Keep inventory items out of the world while stored.
+        item.transform.SetParent(transform, false);
+        item.SetActive(false);
+
+        RefreshInventoryUI();
+
+        Debug.Log("Added " + item.name + " to inventory.");
     }
-    public void OpenAndCloseInventory(InputAction.CallbackContext context)
+
+ 
+    public void EquipItemPressedOnInInventory()
+    {
+        // Find which inventory button was pressed.
+        int index = InventoryUIbuttons.IndexOf(
+            UnityEngine.EventSystems.EventSystem.current
+                .currentSelectedGameObject
+        );
+
+        // Make sure the button corresponds to an inventory item.
+        if (index < 0 || index >= items.Count)
+            return;
+
+        // Get the selected inventory item.
+        GameObject selectedObject = items[index];
+
+        if (selectedObject == null)
+            return;
+
+        LootableObject selectedPart =
+            selectedObject.GetComponent<LootableObject>();
+
+        if (selectedPart == null)
+        {
+            Debug.LogWarning("Selected inventory item has no LootableObject component.");
+            return;
+        }
+
+        // Equip the selected part and get the part it replaced.
+        carUpgrading.EquipCarPart(selectedPart);
+
+        LootableObject oldPart = carUpgrading.DeEquipedItem;
+
+        // Remove the selected item from the inventory list.
+        items.RemoveAt(index);
+
+        // Add the previously equipped part to the inventory.
+        if (oldPart != null)
+        {
+            AddItem(oldPart.gameObject);
+        }
+
+        // Refresh the inventory buttons and icons.
+        RefreshInventoryUI();
+    }
+
+
+    private void RefreshInventoryUI()
+    {
+        // Clear all slot images.
+        for (int i = 0; i < InventoryUISlots.Count; i++)
+        {
+            Image image = GetSlotImage(i);
+
+            if (image != null)
+                image.sprite = null;
+        }
+
+        // Draw the icons for current inventory items.
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i] == null)
+                continue;
+
+            LootableObject part =
+                items[i].GetComponent<LootableObject>();
+
+            if (part == null)
+                continue;
+
+            Image image = GetSlotImage(i);
+
+            if (image == null)
+                continue;
+
+            int spriteIndex = GetSpriteIndex(
+                part.lootableObjectType,
+                part.lootableObjectQuality);
+
+            if (spriteIndex >= 0 && spriteIndex < itemSprites.Count)
+                image.sprite = itemSprites[spriteIndex];
+        }
+    }
+
+    private int GetSpriteIndex(
+        LootableObjectType type,
+        LootableObjectQuality quality)
+    {
+        return ((int)type * 5) + (int)quality;
+    }
+
+    private Image GetSlotImage(int index)
+    {
+        if (index < 0 || index >= InventoryUISlots.Count)
+            return null;
+
+        GameObject slot = InventoryUISlots[index];
+
+        if (slot == null || slot.transform.childCount == 0)
+            return null;
+
+        Transform firstChild = slot.transform.GetChild(0);
+
+        if (firstChild.childCount == 0)
+            return null;
+
+        return firstChild.GetChild(0).GetComponent<Image>();
+    }
+
+    public void OpenAndCloseInventory(
+        InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
 
         isInventoryOpen = !isInventoryOpen;
 
-       if (isInventoryOpen)
-       {
-            Debug.Log("Inventory opened.");
-            // Show inventory
-            PlayerMovement.enabled = false; // Disable player movement when inventory is open
-            UnityEngine.Cursor.visible = true;
-            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None;
-            if (inventoryCanvas != null)
-            {
-                inventoryCanvas.enabled = true; // Show the inventory canvas
-            }
-        }
-       else
-       {
-            Debug.Log("Inventory closed.");
-            // Hide inventory
-            PlayerMovement.enabled = true; // Enable player movement when inventory is closed
-            UnityEngine.Cursor.visible = false;
-            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.Locked;
-            if (inventoryCanvas != null)
-            {
-                inventoryCanvas.enabled = false; // Hide the inventory canvas
-            }
-        }
+        if (PlayerMovement != null)
+            PlayerMovement.enabled = !isInventoryOpen;
+
+        Cursor.visible = isInventoryOpen;
+        Cursor.lockState = isInventoryOpen
+            ? CursorLockMode.None
+            : CursorLockMode.Locked;
+
+        if (inventoryCanvas != null)
+            inventoryCanvas.enabled = isInventoryOpen;
     }
 }
