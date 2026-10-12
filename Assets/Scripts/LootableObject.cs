@@ -80,10 +80,10 @@ public class LootableObject : MonoBehaviour
         return quality switch
         {
             LootableObjectQuality.Normal => 250f,
-            LootableObjectQuality.Improved => 300f,
-            LootableObjectQuality.Reinforced => 350f,
-            LootableObjectQuality.Armored => 400f,
-            LootableObjectQuality.MilitaryGrade => 450f,
+            LootableObjectQuality.Improved => 350f,
+            LootableObjectQuality.Reinforced => 450f,
+            LootableObjectQuality.Armored => 550f,
+            LootableObjectQuality.MilitaryGrade => 650f,
             _ => 250f
         };
     }

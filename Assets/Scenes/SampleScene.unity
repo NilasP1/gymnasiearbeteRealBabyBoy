@@ -246,6 +246,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -373,6 +389,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -552,6 +584,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -749,6 +797,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1107,6 +1171,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1465,6 +1545,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2011,6 +2107,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2339,6 +2451,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2471,6 +2599,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2632,6 +2776,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3082,6 +3242,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3189,6 +3365,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3804,6 +3996,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3926,6 +4134,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4381,6 +4605,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4488,6 +4728,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4991,6 +5247,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5780,6 +6052,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5887,6 +6175,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5994,6 +6298,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6101,6 +6421,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6439,6 +6775,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6603,6 +6955,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6887,6 +7255,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6994,6 +7378,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7395,6 +7795,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7507,6 +7923,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7733,6 +8165,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8196,6 +8644,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8313,6 +8777,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8420,6 +8900,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8772,6 +9268,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134341916}
     m_Modifications:
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1573845654}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipItemPressedOnInInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306003606196664482, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3825340985399832659, guid: c7d398c9e2ec6c2448a6397560c1a503, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
