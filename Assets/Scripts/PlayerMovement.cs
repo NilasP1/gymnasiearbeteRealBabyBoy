@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
-        Debug.Log("Movement input: " + movementInput);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -67,6 +66,5 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
-        Debug.Log("Look input: " + lookInput);
     }
 }
