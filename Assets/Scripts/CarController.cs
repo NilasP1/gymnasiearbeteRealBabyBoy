@@ -42,6 +42,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _steerRangeAtMaxSpeed = 10f;
     [SerializeField] private float _wheelModelLerpSpeed = 5f;
     [SerializeField] private float _LightIntensity = 1f;
+    [SerializeField] private Vector3 _lastCameraParentOffset = new Vector3(0, 0, 0);
     [SerializeField] private GameObject _LightObject1;
     [SerializeField] private GameObject _LightObject2;
 
@@ -199,6 +200,8 @@ public class CarController : MonoBehaviour
         _lastCameraLocalPos = _mainCamera.transform.localPosition;
 
         _mainCamera.transform.SetParent(transform);
+        _lastCameraParent.transform.SetParent(transform, false);
+        _lastCameraParent.transform.localPosition = _lastCameraParentOffset;
         _defaultFov = _mainCamera.fieldOfView;
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -231,6 +234,7 @@ public class CarController : MonoBehaviour
         _mainCamera.transform.rotation = _exitPoint.rotation;
         _mainCamera.fieldOfView = _defaultFov;
 
+        _lastCameraParent.transform.SetParent(null);
         ResetCameraParent();
 
         _orbitPivot.localRotation = Quaternion.identity;
