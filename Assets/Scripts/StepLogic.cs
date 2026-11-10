@@ -9,18 +9,6 @@ public class StepLogic : MonoBehaviour
     public int currentListIndex = 0;
     public LayerMask IgnoreFeet;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         currentListIndex = 0;

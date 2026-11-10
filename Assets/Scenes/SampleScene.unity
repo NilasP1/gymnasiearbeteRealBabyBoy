@@ -3077,6 +3077,7 @@ GameObject:
   - component: {fileID: 425253415}
   - component: {fileID: 425253414}
   - component: {fileID: 425253416}
+  - component: {fileID: 425253417}
   m_Layer: 0
   m_Name: SpiderThing
   m_TagString: Untagged
@@ -3280,9 +3281,23 @@ MonoBehaviour:
   - {fileID: 1044222250}
   RaycastDistanceFromFeet: 4
   currentListIndex: 0
-  Feet:
+  IgnoreFeet:
     serializedVersion: 2
     m_Bits: 247
+--- !u!114 &425253417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425253409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15021f7703de00a4f8331076fdf44bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Bodylocation: {fileID: 425253413}
+  BodyDistanceFromGround: 1
 --- !u!1001 &430224332
 PrefabInstance:
   m_ObjectHideFlags: 0
