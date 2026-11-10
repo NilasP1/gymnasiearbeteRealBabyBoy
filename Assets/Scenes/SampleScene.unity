@@ -3284,6 +3284,8 @@ MonoBehaviour:
   IgnoreFeet:
     serializedVersion: 2
     m_Bits: 247
+  duration: 0.2
+  waveHeight: 1
 --- !u!114 &425253417
 MonoBehaviour:
   m_ObjectHideFlags: 0

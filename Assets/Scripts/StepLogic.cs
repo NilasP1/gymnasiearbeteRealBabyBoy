@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class StepLogic : MonoBehaviour
     public float RaycastDistanceFromFeet = 2f;
     public int currentListIndex = 0;
     public LayerMask IgnoreFeet;
+
+    [SerializeField] private float duration = 2f;
+    [SerializeField] private float waveHeight = 3f;
 
     private void FixedUpdate()
     {
@@ -34,8 +38,10 @@ public class StepLogic : MonoBehaviour
                     Vector3 feetRayOrigin = FeetColliders[currentListIndex].transform.position + Vector3.up * RaycastDistanceFromFeet;
                     if (Physics.Raycast(feetRayOrigin, Vector3.down, out groundHit, RaycastDistanceFromFeet * 2, IgnoreFeet))
                     {
-                        // Move the target point to the ground position
-                        targetPoint.transform.position = groundHit.point;
+                       
+
+                         StartCoroutine(WaveLerp(targetPoint.transform, groundHit.point));
+
                         Debug.Log("Moved target point to ground position: " + groundHit.point);
                     }
                 }
@@ -43,5 +49,34 @@ public class StepLogic : MonoBehaviour
 
             currentListIndex++;
         }
+    }
+
+    public IEnumerator WaveLerp(Transform target, Vector3 finishPos)
+    {
+        Vector3 startPos = target.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            // Normal movement from start to finish
+            Vector3 pos = Vector3.Lerp(startPos, finishPos, t);
+
+            // Wave offset (starts and ends at zero)
+            float wave = Mathf.Sin(t * Mathf.PI) * waveHeight;
+
+            // Apply wave vertically
+            pos.y += wave;
+
+            target.position = pos;
+
+            yield return null;
+        }
+
+        // Ensure exact finishing position
+        target.position = finishPos;
     }
 }
