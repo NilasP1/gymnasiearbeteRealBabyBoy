@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lookInput;
     public Rigidbody rb;
     public float speed = 5f;
+    public Light playerFlashlight;
 
     [SerializeField] private Transform cameraTransform;
     public float mouseSensitivity = 100f;
@@ -61,6 +62,14 @@ public class PlayerMovement : MonoBehaviour
     public void ResetCamera()
     {        
         xRotation = 0f;
+    }
+
+    public void ToggleFlashlight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            playerFlashlight.enabled = !playerFlashlight.enabled;
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
