@@ -31,6 +31,9 @@ public class walkerAI : MonoBehaviour
         if (player == null || checkPlayerAgro == null)
             return;
 
+        if (!agent.isOnNavMesh) // maybe prone to error, remove if no work later
+            return;
+
         if (checkPlayerAgro.PlayerInAgroRange && CanSeePlayer())
         {
             agent.SetDestination(player.position);

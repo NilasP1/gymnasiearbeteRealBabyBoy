@@ -1,60 +1,96 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StepLogic : MonoBehaviour
 {
     public List<GameObject> StepTargetPoints = new List<GameObject>();
     public List<GameObject> FeetColliders = new List<GameObject>();
+
     public float RaycastDistanceFromFeet = 2f;
-    public int currentListIndex = 0;
     public LayerMask IgnoreFeet;
 
     [SerializeField] private float duration = 2f;
     [SerializeField] private float waveHeight = 3f;
 
-    private void FixedUpdate()
+    private List<bool> isLerping = new List<bool>();
+
+    private void Start()
     {
-        currentListIndex = 0;
-
-        //fire a raycast from above the target point downwards to detect if the raycast hits the ground or the feet collider
-        foreach (GameObject targetPoint in StepTargetPoints)
+        // Create one lerping state for each leg
+        for (int i = 0; i < StepTargetPoints.Count; i++)
         {
-            RaycastHit hit;
-            Vector3 rayOrigin = targetPoint.transform.position + Vector3.up * RaycastDistanceFromFeet;
-            if (Physics.Raycast(rayOrigin, Vector3.down, out hit, RaycastDistanceFromFeet * 2))
-            {
-                // Check if the hit object is a feet collider
-                if (FeetColliders.Contains(hit.collider.gameObject))
-                {
-                    Debug.Log("Raycast hit a feet collider: " + hit.collider.gameObject.name);
-                }
-                else
-                {
-                    Debug.Log("Raycast hit something else: " + hit.collider.gameObject.name);
-
-                    // Move the target point to the feet collider's position by fireing another raycast from the feet collider's position downwards to find the ground
-                    RaycastHit groundHit;
-                    Vector3 feetRayOrigin = FeetColliders[currentListIndex].transform.position + Vector3.up * RaycastDistanceFromFeet;
-                    if (Physics.Raycast(feetRayOrigin, Vector3.down, out groundHit, RaycastDistanceFromFeet * 2, IgnoreFeet))
-                    {
-                       
-
-                         StartCoroutine(WaveLerp(targetPoint.transform, groundHit.point));
-
-                        Debug.Log("Moved target point to ground position: " + groundHit.point);
-                    }
-                }
-            }
-
-            currentListIndex++;
+            isLerping.Add(false);
         }
     }
 
-    public IEnumerator WaveLerp(Transform target, Vector3 finishPos)
+    private Dictionary<GameObject, Vector3> hits = new();
+
+    private void Update()
     {
+        for (int i = 0; i < StepTargetPoints.Count; i++)
+        {
+            GameObject targetPoint = StepTargetPoints[i];
+
+            Vector3 rayOrigin = targetPoint.transform.position
+                                + Vector3.up * RaycastDistanceFromFeet;
+
+            if (Physics.Raycast(rayOrigin, Vector3.down, // Raycast from the target point + slight y offset downwards to find the ground
+                out RaycastHit hit, Mathf.Infinity))
+            {
+                if (FeetColliders[i] != hit.collider.gameObject) // If the raycast hit something that is not the feet collider, then we can assume that the leg needs to move
+                {
+
+                    Vector3 offsetY = Vector3.up * RaycastDistanceFromFeet;
+                    Vector3 feetRayOrigin = FeetColliders[i].transform.position + offsetY;
+
+                    if (Physics.Raycast(feetRayOrigin, Vector3.down,
+                        out RaycastHit groundHit, Mathf.Infinity, IgnoreFeet))
+                    {
+                        Debug.DrawLine(feetRayOrigin, groundHit.point, Color.red);
+                        if (hits.ContainsKey(FeetColliders[i]))
+                        {
+                            hits[FeetColliders[i]] = groundHit.point;
+                        }
+                        else
+                        {
+                            hits.Add(FeetColliders[i], groundHit.point);
+                        }
+
+                        if (isLerping.Where(x => x).Count() <= 4) // If there are less than 4 legs currently moving, then we can start moving this leg
+                        {
+                            StartCoroutine(WaveLerp(
+                                targetPoint.transform,
+                                groundHit.point,
+                                i
+                            ));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        foreach (var hit in hits.Values)
+        {
+            Gizmos.DrawSphere(hit, 0.1f);
+        }
+    }
+
+    public IEnumerator WaveLerp(Transform target, Vector3 finishPos, int index)
+    {
+        //yield return new WaitForSeconds(Random.value * 0.2f); // Add a small random delay to make the movement look more natural
+
         Vector3 startPos = target.position;
         float elapsed = 0f;
+
+        isLerping[index] = true;
 
         while (elapsed < duration)
         {
@@ -62,21 +98,21 @@ public class StepLogic : MonoBehaviour
 
             float t = Mathf.Clamp01(elapsed / duration);
 
-            // Normal movement from start to finish
-            Vector3 pos = Vector3.Lerp(startPos, finishPos, t);
+            float smoothT = Mathf.SmoothStep(0f, 1f, t);
 
-            // Wave offset (starts and ends at zero)
-            float wave = Mathf.Sin(t * Mathf.PI) * waveHeight;
+            Vector3 pos = Vector3.Lerp(startPos, finishPos, smoothT);
 
-            // Apply wave vertically
-            pos.y += wave;
+            float lift = Mathf.Sin(t * Mathf.PI) * waveHeight;
+
+            pos.y += lift;
 
             target.position = pos;
 
             yield return null;
         }
 
-        // Ensure exact finishing position
         target.position = finishPos;
+
+        isLerping[index] = false;
     }
 }
