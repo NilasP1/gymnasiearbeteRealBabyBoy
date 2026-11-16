@@ -12,8 +12,12 @@ public class ZombieManager : MonoBehaviour
     public float groundRayHeight = 50f;
     public float groundRayDistance = 100f;
     public float SpawnHeightAboveGround = 2;
+    public float navMeshSampleDistance = 2f;
+    public int currentSpawnPointIndex = 0;
 
-    public List<GameObject> SpawnPoints = new List<GameObject>();
+    public int spawnPointCount = 8;
+    private List<Transform> SpawnPoints = new List<Transform>();
+
     public List<GameObject> Zombies = new List<GameObject>();
 
     public int CurrentzombieCount = 0;
@@ -21,6 +25,10 @@ public class ZombieManager : MonoBehaviour
     public float ZombieDespawnRadius = 30f;
     public GameObject zombiePrefab;
 
+    void Start()
+    {
+        CreateSpawnPoints();
+    }
 
     void Update()
     {
@@ -49,6 +57,28 @@ public class ZombieManager : MonoBehaviour
         }
     }
 
+    void CreateSpawnPoints()
+    {
+        // Remove previously created spawn points
+        foreach (Transform child in transform)
+        {
+            if (child.name.StartsWith("ZombieSpawnPoint"))
+                Destroy(child.gameObject);
+        }
+
+        SpawnPoints.Clear();
+
+        for (int i = 0; i < spawnPointCount; i++)
+        {
+            GameObject spawnPoint = new GameObject("ZombieSpawnPoint_" + i);
+
+            spawnPoint.transform.SetParent(transform);
+
+            SpawnPoints.Add(spawnPoint.transform);
+        }
+    }
+
+
     void UpdateSpawnPoints()
     {
         if (player == null || SpawnPoints.Count == 0)
@@ -58,12 +88,8 @@ public class ZombieManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            GameObject spawnPoint = SpawnPoints[i];
+            Transform spawnPoint = SpawnPoints[i];
 
-            if (spawnPoint == null)
-                continue;
-
-            // Evenly space the spawn points around the circle
             float angle = (360f / count) * i;
             float radians = angle * Mathf.Deg2Rad;
 
@@ -73,78 +99,105 @@ public class ZombieManager : MonoBehaviour
                 Mathf.Sin(radians)
             );
 
-            // Calculate position on the circle
-            Vector3 position = player.position + direction * circleRadius;
+            // Start ray slightly above player
+            Vector3 rayOrigin = player.position + Vector3.up * 1f;
 
-            // Start above the terrain and raycast downward
-            Vector3 rayOrigin = new Vector3(
-                position.x,
-                player.position.y + groundRayHeight,
-                position.z
-            );
+            // Cast outward from player
+            Vector3 position;
 
             if (Physics.Raycast(
                 rayOrigin,
+                direction,
+                out RaycastHit obstacleHit,
+                circleRadius,
+                groundLayer))
+            {
+                // Place spawn point slightly before the obstacle
+                position = obstacleHit.point - direction * 1f;
+            }
+            else
+            {
+                // No obstacle: use full circle radius
+                position = player.position + direction * circleRadius;
+            }
+
+            // Cast downward to find the ground
+            Vector3 groundRayOrigin = position + Vector3.up * groundRayHeight;
+
+            if (Physics.Raycast(
+                groundRayOrigin,
                 Vector3.down,
-                out RaycastHit hit,
+                out RaycastHit groundHit,
                 groundRayDistance,
                 groundLayer))
             {
-                // Use the ground height
-                position.y = hit.point.y;
+                position.y = groundHit.point.y + SpawnHeightAboveGround;
             }
 
-            spawnPoint.transform.position = position + Vector3.up * SpawnHeightAboveGround;
+            // Update spawn point
+            spawnPoint.position = position;
         }
     }
+
+
 
     public void SpawnZombie()
     {
         if (SpawnPoints.Count == 0)
+        {
+            Debug.LogWarning("No spawn points created!");
             return;
+        }
 
-        int randomIndex = Random.Range(0, SpawnPoints.Count);
-        GameObject spawnPoint = SpawnPoints[randomIndex];
+        if (zombiePrefab == null)
+        {
+            Debug.LogWarning("Zombie prefab is missing!");
+            return;
+        }
+
+        Transform spawnPoint = SpawnPoints[currentSpawnPointIndex];
+
+        // Advance to next spawn point
+        currentSpawnPointIndex =
+            (currentSpawnPointIndex + 1) % SpawnPoints.Count;
 
         if (spawnPoint == null)
             return;
 
-        if (zombiePrefab != null)
+        // Find NavMesh near the spawn point
+        if (!NavMesh.SamplePosition(
+            spawnPoint.position,
+            out NavMeshHit navHit,
+            navMeshSampleDistance,
+            NavMesh.AllAreas))
         {
-            GameObject newZombie = Instantiate(
-                zombiePrefab,
-                spawnPoint.transform.position,
-                Quaternion.identity
-            );
-
-            // Ensure NavMeshAgent is on the NavMesh (try to snap / warp it)
-            NavMeshAgent agent = newZombie.GetComponent<NavMeshAgent>();
-            if (agent != null && !agent.isOnNavMesh)
-            {
-                if (NavMesh.SamplePosition(newZombie.transform.position, out NavMeshHit navHit, 2f, NavMesh.AllAreas))
-                {
-                    agent.Warp(navHit.position);
-                }
-                else if (NavMesh.SamplePosition(newZombie.transform.position + Vector3.down * 1f, out navHit, 5f, NavMesh.AllAreas))
-                {
-                    agent.Warp(navHit.position);
-                }
-            }
-
-            // Assign walkerAI references if present
-            var walker = newZombie.GetComponent<walkerAI>();
-            if (walker != null)
-            {
-                if (walker.player == null)
-                    walker.player = player;
-
-                if (walker.checkPlayerAgro == null)
-                    walker.checkPlayerAgro = newZombie.GetComponentInChildren<CheckPlayerAgro>();
-            }
-
-            Zombies.Add(newZombie);
-            CurrentzombieCount++;
+            Debug.Log("No NavMesh at spawn point: " + spawnPoint.name);
+            return;
         }
-    }
 
+        // Spawn zombie directly on NavMesh
+        GameObject newZombie = Instantiate(
+            zombiePrefab,
+            navHit.position,
+            Quaternion.identity
+        );
+
+        var walker = newZombie.GetComponent<walkerAI>();
+
+        if (walker != null)
+        {
+            walker.player = player;
+
+            if (walker.checkPlayerAgro == null)
+            {
+                walker.checkPlayerAgro =
+                    newZombie.GetComponentInChildren<CheckPlayerAgro>();
+            }
+        }
+
+        Zombies.Add(newZombie);
+        CurrentzombieCount++;
+
+        Debug.Log("Zombie spawned at: " + spawnPoint.name);
+    }
 }
