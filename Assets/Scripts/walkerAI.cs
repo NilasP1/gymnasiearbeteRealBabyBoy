@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Animator))]
 public class walkerAI : MonoBehaviour
 {
     public Transform player;
     public CheckPlayerAgro checkPlayerAgro;
     public float roamingRange = 10f;
+    [SerializeField] private float ChaseSpeed;
+    [SerializeField] private float RoamSpeed;
 
     private NavMeshAgent agent;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
 
         if (player == null)
@@ -34,16 +40,22 @@ public class walkerAI : MonoBehaviour
         if (!agent.isOnNavMesh) // maybe prone to error, remove if no work later
             return;
 
-        if (checkPlayerAgro.PlayerInAgroRange && CanSeePlayer())
+        if (checkPlayerAgro.PlayerInAgroRange && CanSeePlayer()) // Is agitated and running towards player
         {
+            agent.speed = ChaseSpeed;
             agent.SetDestination(player.position);
+            animator.SetTrigger("PlayRun");
         }
-        else if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.5f)
+        else if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.5f) // Random roam, no aggro
         {
+            agent.speed = RoamSpeed;
+
             Vector3 randomPoint = transform.position + Random.insideUnitSphere * roamingRange;
 
             if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, roamingRange, NavMesh.AllAreas))
                 agent.SetDestination(hit.position);
+
+            animator.SetTrigger("PlayWalk");
         }
     }
 
