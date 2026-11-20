@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class CarUpgrading : MonoBehaviour
@@ -11,12 +12,12 @@ public class CarUpgrading : MonoBehaviour
     public LootableObject SuspensionPrefab;
 
     [Header("Equipped Car Parts")]
-    public LootableObject EquipedCarTires;
-    public LootableObject EquipedCarEngine;
-    public LootableObject EquipedCarBody;
-    public LootableObject EquipedCarLights;
-    public LootableObject EquipedCarBrakes;
-    public LootableObject EquipedCarSuspension;
+    public LootableObject EquippedCarTires;
+    public LootableObject EquippedCarEngine;
+    public LootableObject EquippedCarBody;
+    public LootableObject EquippedCarLights;
+    public LootableObject EquippedCarBrakes;
+    public LootableObject EquippedCarSuspension;
 
     [Header("Unequipped Part")]
     public LootableObject DeEquipedItem;
@@ -26,23 +27,22 @@ public class CarUpgrading : MonoBehaviour
 
     private void Awake()
     {
-        // Create the starting parts with Normal quality.
-        EquipedCarTires = CreateStartingPart(
+        EquippedCarTires = CreateStartingPart(
             TiresPrefab, LootableObjectType.Tires);
 
-        EquipedCarEngine = CreateStartingPart(
+        EquippedCarEngine = CreateStartingPart(
             EnginePrefab, LootableObjectType.Engine);
 
-        EquipedCarBody = CreateStartingPart(
+        EquippedCarBody = CreateStartingPart(
             BodyPrefab, LootableObjectType.Body);
 
-        EquipedCarLights = CreateStartingPart(
+        EquippedCarLights = CreateStartingPart(
             LightsPrefab, LootableObjectType.Light);
 
-        EquipedCarBrakes = CreateStartingPart(
+        EquippedCarBrakes = CreateStartingPart(
             BrakesPrefab, LootableObjectType.Brakes);
 
-        EquipedCarSuspension = CreateStartingPart(
+        EquippedCarSuspension = CreateStartingPart(
             SuspensionPrefab, LootableObjectType.Suspension);
 
         UpdateCarStats();
@@ -61,66 +61,115 @@ public class CarUpgrading : MonoBehaviour
         LootableObject part = Instantiate(prefab);
 
         part.Initialize(type, LootableObjectQuality.Normal);
-
-        // These objects store stats only, so their models stay hidden.
         part.gameObject.SetActive(false);
 
         return part;
     }
 
-    public void EquipCarPart(LootableObject newPart)
+    public LootableObject EquipCarPart(LootableObject newPart)
     {
-        if (newPart == null)
-        {
-            Debug.LogWarning("Cannot equip a null car part.");
-            return;
-        }
+        if (!TryEquipCarPart(newPart, out LootableObject oldPart))
+            return null;
 
-        DeEquipedItem = null;
+        return oldPart;
+    }
+
+    public bool TryEquipCarPart(
+        LootableObject newPart,
+        out LootableObject oldPart)
+    {
+        oldPart = null;
+
+        if (newPart == null)
+            return false;
 
         switch (newPart.lootableObjectType)
         {
             case LootableObjectType.Tires:
-                DeEquipedItem = EquipedCarTires;
-                EquipedCarTires = newPart;
+                oldPart = EquippedCarTires;
+                EquippedCarTires = newPart;
                 break;
 
             case LootableObjectType.Engine:
-                DeEquipedItem = EquipedCarEngine;
-                EquipedCarEngine = newPart;
+                oldPart = EquippedCarEngine;
+                EquippedCarEngine = newPart;
                 break;
 
             case LootableObjectType.Body:
-                DeEquipedItem = EquipedCarBody;
-                EquipedCarBody = newPart;
+                oldPart = EquippedCarBody;
+                EquippedCarBody = newPart;
                 break;
 
             case LootableObjectType.Light:
-                DeEquipedItem = EquipedCarLights;
-                EquipedCarLights = newPart;
+                oldPart = EquippedCarLights;
+                EquippedCarLights = newPart;
                 break;
 
             case LootableObjectType.Brakes:
-                DeEquipedItem = EquipedCarBrakes;
-                EquipedCarBrakes = newPart;
+                oldPart = EquippedCarBrakes;
+                EquippedCarBrakes = newPart;
                 break;
 
             case LootableObjectType.Suspension:
-                DeEquipedItem = EquipedCarSuspension;
-                EquipedCarSuspension = newPart;
+                oldPart = EquippedCarSuspension;
+                EquippedCarSuspension = newPart;
                 break;
 
             default:
-                Debug.LogWarning(
-                    "Unknown car part type: " + newPart.lootableObjectType);
-                return;
+                return false;
         }
 
-        // Equipped parts are stat data only; don't display their models.
+        DeEquipedItem = oldPart;
+
         newPart.gameObject.SetActive(false);
 
-        // Refresh the car's stats.
         UpdateCarStats();
+
+        return true;
+    }
+
+    public LootableObject TakeCarPart(LootableObjectType type)
+    {
+        LootableObject part = null;
+
+        switch (type)
+        {
+            case LootableObjectType.Tires:
+                part = EquippedCarTires;
+                EquippedCarTires = null;
+                break;
+
+            case LootableObjectType.Engine:
+                part = EquippedCarEngine;
+                EquippedCarEngine = null;
+                break;
+
+            case LootableObjectType.Body:
+                part = EquippedCarBody;
+                EquippedCarBody = null;
+                break;
+
+            case LootableObjectType.Light:
+                part = EquippedCarLights;
+                EquippedCarLights = null;
+                break;
+
+            case LootableObjectType.Brakes:
+                part = EquippedCarBrakes;
+                EquippedCarBrakes = null;
+                break;
+
+            case LootableObjectType.Suspension:
+                part = EquippedCarSuspension;
+                EquippedCarSuspension = null;
+                break;
+        }
+
+        DeEquipedItem = part;
+
+        UpdateCarStats();
+
+        return part;
     }
 
     private void UpdateCarStats()
@@ -128,24 +177,21 @@ public class CarUpgrading : MonoBehaviour
         if (carController == null)
             return;
 
-        if (EquipedCarTires == null ||
-            EquipedCarEngine == null ||
-            EquipedCarBody == null ||
-            EquipedCarLights == null ||
-            EquipedCarBrakes == null ||
-            EquipedCarSuspension == null)
-        {
+        if (EquippedCarTires == null ||
+            EquippedCarEngine == null ||
+            EquippedCarBody == null ||
+            EquippedCarLights == null ||
+            EquippedCarBrakes == null ||
+            EquippedCarSuspension == null)
             return;
-        }
 
         carController.ChangeCarStats(
-            EquipedCarEngine.EngineTorque,             // motorTorque
-            EquipedCarBrakes.brakeTorque,              // brakeTorque
-            EquipedCarBody.BodyAirResistance,          // maxSpeed
-            EquipedCarLights.LightIntensity,           // lightintensity
-            EquipedCarSuspension.suspensiondistance,    // suspension
-            EquipedCarTires.TireGrip                   // tiregrip
+            EquippedCarEngine.EngineTorque,
+            EquippedCarBrakes.brakeTorque,
+            EquippedCarBody.BodyAirResistance,
+            EquippedCarLights.LightIntensity,
+            EquippedCarSuspension.suspensiondistance,
+            EquippedCarTires.TireGrip
         );
     }
-
 }
