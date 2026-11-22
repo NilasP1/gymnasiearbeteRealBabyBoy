@@ -84,6 +84,24 @@ public class InventoryItem : MonoBehaviour,
         if (inventory == null || !isPlaced)
             return;
 
+        // Check whether the item was released outside the inventory panel.
+        bool insideInventory = inventory.IsPointerInsideInventoryPanel(
+            eventData.position,
+            eventData.pressEventCamera
+        );
+
+        if (!insideInventory)
+        {
+            // Drop the item into the world.
+            if (inventory.TryDropItemToWorld(this))
+                return;
+
+            // If dropping fails, restore its original position.
+            inventory.RestoreItemPosition(this);
+            return;
+        }
+
+        // Otherwise, attempt to move the item inside the grid.
         float step = inventory.cellSize + inventory.spacing;
 
         Vector2 pos = rect.anchoredPosition;

@@ -10,6 +10,11 @@ public class InventoryManager : MonoBehaviour
     public float cellSize = 64;
     public float spacing = 2;
 
+    [Header("World Dropping")]
+    public RectTransform inventoryPanelRect;
+    public Transform dropPoint;
+    public float dropDistance = 2f;
+
     [Header("UI References")]
     public RectTransform gridRect;
     public RectTransform itemContainer;
@@ -108,6 +113,59 @@ public class InventoryManager : MonoBehaviour
         return CreateInventoryItem(template, part, x, y);
     }
 
+    public bool IsPointerInsideInventoryPanel(
+    Vector2 screenPosition,
+    Camera eventCamera)
+    {
+        RectTransform panel = inventoryPanelRect != null
+            ? inventoryPanelRect
+            : gridRect;
+
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            panel,
+            screenPosition,
+            eventCamera
+        );
+    }
+
+    public bool TryDropItemToWorld(InventoryItem item)
+    {
+        if (item == null || item.partData == null || !item.isPlaced)
+            return false;
+
+        LootableObject part = item.partData;
+
+        Transform spawnTransform = dropPoint != null
+            ? dropPoint
+            : Camera.main != null ? Camera.main.transform : null;
+
+        if (spawnTransform == null)
+        {
+            Debug.LogWarning("No drop point or Main Camera assigned!");
+            return false;
+        }
+
+        Vector3 dropPosition = dropPoint != null
+            ? dropPoint.position
+            : spawnTransform.position + spawnTransform.forward * dropDistance;
+
+        // Remove the item from the inventory grid.
+        ClearGridReferences(item);
+
+        // Return the original LootableObject to the world.
+        part.transform.SetParent(null, true);
+        part.transform.position = dropPosition;
+        part.gameObject.SetActive(true);
+
+        // Remove the inventory UI representation.
+        Destroy(item.gameObject);
+
+        UpdateCellColors();
+
+        Debug.Log("Dropped item into the world: " + part.name);
+
+        return true;
+    }
     private InventoryItem FindTemplate(
         LootableObjectType type,
         LootableObjectQuality quality)
