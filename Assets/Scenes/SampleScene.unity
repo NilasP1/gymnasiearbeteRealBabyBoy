@@ -23,8 +23,8 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.17021182, g: 0.27769887, b: 0.4245283, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientIntensity: 2
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 51b74d7bad397457d883c5940f7664d8, type: 2}
   m_HaloStrength: 0.5
@@ -18748,6 +18748,7 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
+  - component: {fileID: 410087043}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -18766,7 +18767,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 0, g: 0.46609783, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -18864,6 +18865,19 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &410087043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410087039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68eb29a4b1747774fa0e4e6dfb74102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  rotationSpeed: 0.5
 --- !u!1001 &412477845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22279,8 +22293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a8fb812d87c3a49b8a91b125f3e7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  colorA: {r: 0.28644538, g: 0.33563516, b: 0.38679248, a: 1}
-  colorB: {r: 0.111249544, g: 0.14270535, b: 0.18867922, a: 1}
+  colorA: {r: 0.17688681, g: 0.20636794, b: 0.23584908, a: 1}
+  colorB: {r: 0, g: 0, b: 0, a: 1}
   minDensity: 0.055
   maxDensity: 0.085
   speed: 0.1
