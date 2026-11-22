@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,6 +35,10 @@ public class ZombieManager : MonoBehaviour
     {
         UpdateSpawnPoints();
 
+        // Remove destroyed zombies and synchronize the count
+        Zombies.RemoveAll(zombie => zombie == null);
+        CurrentzombieCount = Zombies.Count;
+
         if (CurrentzombieCount < MaxZombieCount)
         {
             SpawnZombie();
@@ -41,25 +46,25 @@ public class ZombieManager : MonoBehaviour
 
         foreach (GameObject zombie in Zombies.ToArray())
         {
-            if (zombie == null)
-            {
-                Zombies.Remove(zombie);
-                CurrentzombieCount--;
+            if (zombie == null || player == null)
                 continue;
-            }
-            float distanceToPlayer = Vector3.Distance(zombie.transform.position, player.position);
+
+            float distanceToPlayer = Vector3.Distance(
+                zombie.transform.position,
+                player.position
+            );
+
             if (distanceToPlayer > ZombieDespawnRadius)
             {
-                Destroy(zombie);
                 Zombies.Remove(zombie);
-                CurrentzombieCount--;
+                CurrentzombieCount = Zombies.Count;
+                Destroy(zombie);
             }
         }
     }
 
     void CreateSpawnPoints()
     {
-        // Remove previously created spawn points
         foreach (Transform child in transform)
         {
             if (child.name.StartsWith("ZombieSpawnPoint"))
@@ -70,14 +75,14 @@ public class ZombieManager : MonoBehaviour
 
         for (int i = 0; i < spawnPointCount; i++)
         {
-            GameObject spawnPoint = new GameObject("ZombieSpawnPoint_" + i);
+            GameObject spawnPoint = new GameObject(
+                "ZombieSpawnPoint_" + i
+            );
 
             spawnPoint.transform.SetParent(transform);
-
             SpawnPoints.Add(spawnPoint.transform);
         }
     }
-
 
     void UpdateSpawnPoints()
     {
@@ -99,10 +104,8 @@ public class ZombieManager : MonoBehaviour
                 Mathf.Sin(radians)
             );
 
-            // Start ray slightly above player
             Vector3 rayOrigin = player.position + Vector3.up * 1f;
 
-            // Cast outward from player
             Vector3 position;
 
             if (Physics.Raycast(
@@ -112,17 +115,15 @@ public class ZombieManager : MonoBehaviour
                 circleRadius,
                 groundLayer))
             {
-                // Place spawn point slightly before the obstacle
                 position = obstacleHit.point - direction * 1f;
             }
             else
             {
-                // No obstacle: use full circle radius
                 position = player.position + direction * circleRadius;
             }
 
-            // Cast downward to find the ground
-            Vector3 groundRayOrigin = position + Vector3.up * groundRayHeight;
+            Vector3 groundRayOrigin =
+                position + Vector3.up * groundRayHeight;
 
             if (Physics.Raycast(
                 groundRayOrigin,
@@ -134,12 +135,9 @@ public class ZombieManager : MonoBehaviour
                 position.y = groundHit.point.y + SpawnHeightAboveGround;
             }
 
-            // Update spawn point
             spawnPoint.position = position;
         }
     }
-
-
 
     public void SpawnZombie()
     {
@@ -157,14 +155,12 @@ public class ZombieManager : MonoBehaviour
 
         Transform spawnPoint = SpawnPoints[currentSpawnPointIndex];
 
-        // Advance to next spawn point
         currentSpawnPointIndex =
             (currentSpawnPointIndex + 1) % SpawnPoints.Count;
 
         if (spawnPoint == null)
             return;
 
-        // Find NavMesh near the spawn point
         if (!NavMesh.SamplePosition(
             spawnPoint.position,
             out NavMeshHit navHit,
@@ -175,7 +171,6 @@ public class ZombieManager : MonoBehaviour
             return;
         }
 
-        // Spawn zombie directly on NavMesh
         GameObject newZombie = Instantiate(
             zombiePrefab,
             navHit.position,
