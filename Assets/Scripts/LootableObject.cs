@@ -6,6 +6,14 @@ public class LootableObject : MonoBehaviour
     [Header("Item Settings")]
     public LootableObjectType lootableObjectType;
     public LootableObjectQuality lootableObjectQuality;
+    public Light RarityLight;
+
+    [Header("Light Colors For Different Rarities")]
+    public Color NormalColor;
+    public Color ImprovedColor;
+    public Color ReinforcedColor;
+    public Color ArmouredColor;
+    public Color MilitaryColor;
 
     [Header("Car Part Stats")]
     public float TireGrip;
@@ -58,6 +66,25 @@ public class LootableObject : MonoBehaviour
 
             case LootableObjectType.Suspension:
                 suspensiondistance = GetSuspensionDistance(quality);
+                break;
+        }
+
+        switch (quality)
+        {
+            case LootableObjectQuality.Normal:
+                RarityLight.color = NormalColor;
+                break;
+            case LootableObjectQuality.Improved:
+                RarityLight.color = ImprovedColor;
+                break;
+            case LootableObjectQuality.Reinforced:
+                RarityLight.color = ReinforcedColor;
+                break;
+            case LootableObjectQuality.Armored:
+                RarityLight.color = ReinforcedColor;
+                break;
+            case LootableObjectQuality.MilitaryGrade:
+                RarityLight.color = MilitaryColor;
                 break;
         }
     }

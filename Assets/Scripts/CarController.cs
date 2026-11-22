@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using TMPro;
 
 [RequireComponent(typeof(PlayerInput), typeof(Rigidbody))]
 public class CarController : MonoBehaviour
@@ -45,6 +46,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Vector3 _lastCameraParentOffset = new Vector3(0, 0, 0);
     [SerializeField] private GameObject _LightObject1;
     [SerializeField] private GameObject _LightObject2;
+    [SerializeField] private List<TextMeshProUGUI> _TextsForShowingStats = new List<TextMeshProUGUI>();
 
     [Header("Suspension Settings")]
     [SerializeField] private WheelCollider _RightFrontSuspension;
@@ -266,6 +268,16 @@ public class CarController : MonoBehaviour
         {
             wheel.Collider.forwardFriction = SetTireGrip(wheel.Collider.forwardFriction, tiregrip);
             wheel.Collider.sidewaysFriction = SetTireGrip(wheel.Collider.sidewaysFriction, tiregrip);
+        }
+
+        if (_TextsForShowingStats.Count >= 6)
+        {
+            _TextsForShowingStats[0].text = "Motor Torque: " + motorTorque.ToString("F0");
+            _TextsForShowingStats[1].text = "Brake Torque: " + brakeTorque.ToString("F0");
+            _TextsForShowingStats[2].text = "Max Speed: " + maxSpeed.ToString("F1");
+            _TextsForShowingStats[3].text = "Light Intensity: " + lightintensity.ToString("F1");
+            _TextsForShowingStats[4].text = "Suspension: " + suspension.ToString("F2");
+            _TextsForShowingStats[5].text = "Tire Grip: " + tiregrip.ToString("F2");
         }
     }
 
