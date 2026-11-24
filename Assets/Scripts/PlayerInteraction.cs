@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float _raydistance;
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private Looting _lootingScript;
+    [SerializeField] private ScrapMetalManager _scrapMetalManager;
 
     private CarController lastCarController = null;
 
@@ -30,6 +31,12 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.CompareTag("Loot"))
             {
                 _lootingScript.LootingItem(hit.collider.gameObject);
+            }
+            else if (hit.collider.CompareTag("ScrapMetal"))
+            {
+                // Handle scrap metal interaction
+                _scrapMetalManager.ScrapMetalCount += 3;
+                Destroy(hit.collider.gameObject); 
             }
         }
     }

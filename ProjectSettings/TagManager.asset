@@ -8,6 +8,7 @@ TagManager:
   - Loot
   - Foot
   - EnemyStop
+  - ScrapMetal
   layers:
   - Default
   - TransparentFX
