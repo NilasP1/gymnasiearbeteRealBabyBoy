@@ -14,6 +14,7 @@ public class walkerAI : MonoBehaviour
     public float roamingRange = 10f;
     [SerializeField] private float ChaseSpeed;
     [SerializeField] private float RoamSpeed;
+    [SerializeField] private bool isTouchingCar = false;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -63,6 +64,24 @@ public class walkerAI : MonoBehaviour
         footstepTimer = footstepInterval;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyStop"))
+        {
+            Debug.Log("Touched Car " + other.name);
+            isTouchingCar = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnemyStop"))
+        {
+            Debug.Log("Exited car touch");
+            isTouchingCar = false;
+        }
+    }
+
     void Update()
     {
         // Sound systems run independently of player detection
@@ -74,6 +93,20 @@ public class walkerAI : MonoBehaviour
 
         if (!agent.isOnNavMesh) // maybe prone to error, remove if no work later
             return;
+
+        // Stop if the enemy is touching the players car 
+        if (isTouchingCar)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+
+            AttackCar();
+            return;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
 
         if (checkPlayerAgro.PlayerInAgroRange && CanSeePlayer()) // Is agitated and running towards player
         {
@@ -92,6 +125,11 @@ public class walkerAI : MonoBehaviour
 
             animator.SetTrigger("PlayWalk");
         }
+    }
+
+    public void AttackCar()
+    {
+
     }
 
     bool CanSeePlayer()

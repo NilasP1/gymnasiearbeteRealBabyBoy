@@ -7,6 +7,7 @@ TagManager:
   - Car
   - Loot
   - Foot
+  - EnemyStop
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Ground
   - Feet
-  - 
+  - ZombieAggroZone
   - 
   - 
   - 
