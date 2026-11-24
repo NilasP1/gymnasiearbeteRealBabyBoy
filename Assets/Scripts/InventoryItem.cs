@@ -95,7 +95,7 @@ public class InventoryItem : MonoBehaviour,
             // Drop the item into the world.
             if (inventory.TryDropItemToWorld(this))
                 return;
-
+            
             // If dropping fails, restore its original position.
             inventory.RestoreItemPosition(this);
             return;
