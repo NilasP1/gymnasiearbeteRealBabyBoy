@@ -35,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
             else if (hit.collider.CompareTag("ScrapMetal"))
             {
                 // Handle scrap metal interaction
-                _scrapMetalManager.ScrapMetalCount += 3;
+                _scrapMetalManager.ScrapMetalCount += 3 ;
                 Destroy(hit.collider.gameObject); 
             }
         }

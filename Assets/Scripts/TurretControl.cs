@@ -7,6 +7,7 @@ public class TurretControl : MonoBehaviour
     public Transform TurretGunTop;
     public Transform CarTransform;
     public ParticleSystem MuzzleFlash;
+    public ParticleSystem ZombieDeathBlood;
     public ScrapMetalManager ScrapMetalManager;
 
     [Header("Settings")]
@@ -145,6 +146,18 @@ public class TurretControl : MonoBehaviour
         Debug.Log("Zombie killed: " + currentTarget.name);
 
         MuzzleFlash.Play();
+
+        // Play blood effect at zombie's position
+        if (ZombieDeathBlood != null)
+        {
+            ParticleSystem bloodEffect = Instantiate(
+                ZombieDeathBlood,
+                currentTarget.position,
+                ZombieDeathBlood.transform.rotation
+            );
+            bloodEffect.Play();
+            Destroy(bloodEffect.gameObject, bloodEffect.main.duration);
+        }
 
         Destroy(currentTarget.gameObject);
 
